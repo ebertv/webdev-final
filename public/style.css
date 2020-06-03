@@ -2,25 +2,23 @@
 body{
     font-family: Avant Garde, Verdana, sans-serif;
     margin: 0;
-    background-color: rgb(255, 255, 255);
-}
+    color: #f2f2f2;
+    background-color: #262626;
+}    
 
-a{
-    text-decoration: none;
-}
  /*just picked same color as spotify logo, don't care about colors*/
 .site-title{
     margin: 0;
     padding: 10px 20px;
     text-align: center;
     font-size: 30px;
-    font-weight: 100;
+    font-weight: 900;
     background-color: #1ed760;
-    color: #fff;
+    color: #f2f2f2;
 }
 
 .navbar {
-    background-color: rgb(117, 116, 116);
+    background-color: #0d0d0d;
     font-size: 18px;
     line-height: 22px;
 }
@@ -34,8 +32,22 @@ a{
     display: inline-block;
 }
 
-a {
+h1{
+    text-align: center;
+
+}
+
+h2{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
+
+a{
     color: #ffffff;
+    text-decoration: none;
   }
   
 a:hover, a:focus {
@@ -90,9 +102,9 @@ a:focus {
     width: 250px;
     margin: 20px;
     padding: 20px;
-    border: 1px solid #000000;
-    border-radius: 2px;
-    background-color: rgb(236, 236, 236);
+    /*border: 1px solid #000000;*/
+    border-radius: 10px;
+    background-color: #595959;
     box-shadow: 5px 5px 4px #888888;
   }
   
