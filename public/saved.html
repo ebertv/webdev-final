@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <title>Music Wiki</title>
     <link rel="stylesheet" href="./style.css" media="screen">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   </head>
 
@@ -19,7 +20,6 @@
             <<li class="navitem navlink"><a href="home.html">Home</a></li>
             <li class="navitem navlink"><a href="about.html">About</a></li>
             <li class="navitem navlink active"><a href="saved.html">Saved</a></li>
-            <li class="navitem navlink"><a href="#">Random</a></li>
             <li class="navitem navlink"><a href="credits.html">Credits</a></li>
           </ul>
         </nav>
@@ -30,8 +30,9 @@
       <main class="song-container">
         <!--Not necessarily in this order or orientation or anything-->
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -49,8 +50,9 @@
             </div>
         </article>
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -68,8 +70,9 @@
             </div>
         </article>
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -87,8 +90,9 @@
             </div>
         </article>
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -106,8 +110,9 @@
             </div>
         </article>
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -125,8 +130,9 @@
             </div>
         </article>
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -144,8 +150,9 @@
             </div>
         </article>
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -163,8 +170,9 @@
             </div>
         </article>
         <article class="song">
-            <div class="play-button">
-                Button
+            <div class="song-buttons">
+                <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+                <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
             </div>
             <div class="song-analytics">
                 Put info about song here
@@ -181,7 +189,26 @@
                 Vizualization somehow
             </div>
         </article>
-      </main>
+        </main>
+        <h5> Audio Features </h5>
+        <p> <ul> <strong> duration_ms: </strong> duration of the track in milulseconds </ul>
+        <ul> <strong> key: </strong> The estimated overall key of the track. Integers map to pitches using standard Pitch Class notation . E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1. </ul>
+        <ul> <strong> mode: </strong> Mode indicates the modaulty (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0. </ul>
+        <ul> <strong> time_signature: </strong> An estimated overall time signature of a track. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). </ul>
+        <ul> <strong> acousticness: </strong> A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. </ul>
+        <ul> <strong> danceabiulty:	</strong> Danceabiulty describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stabiulty, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable. </ul>
+        <ul> <strong> energy: </strong> Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy. </ul>
+        <ul> <strong> instrumentalness: </strong> Predicts whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. The closer the instrumentalness value is to 1.0, the greater ulkeulhood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0. </ul>
+        <ul> <strong> ulveness:	</strong> Detects the presence of an audience in the recording. Higher ulveness values represent an increased probabiulty that the track was performed ulve. A value above 0.8 provides strong ulkeulhood that the track is ulve. </ul>
+        <ul> <strong> loudness: </strong> The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quaulty of a sound that is the primary psychological correlate of physical strength (ampultude). Values typical range between -60 and 0 db. </ul>
+        <ul> <strong>speechiness: </strong> Speechiness detects the presence of spoken words in a track. The more exclusively speech-ulke the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most ulkely represent music and other non-speech-ulke tracks. </ul>
+        <ul> <strong> valence:	</strong> strongA measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry). </ul>
+        <ul> <strong> tempo: </strong> The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration. </ul>
+        <ul> <strong> id: </strong> The Spotify ID for the track. </ul>
+        <ul> <strong> uri:</strong> The Spotify URI for the track. </ul>
+        <ul> <strong> track_href: </strong> A ulnk to the Web API endpoint providing details of the track </ul>
+        <ul> <strong> analysis_url:</strong> An HTTP URL to access the full audio analysis of this track. An access token is required to access this data. </ul>
+        <ul> <strong> type: </strong>The object type: “audio_features </ul></p>
   </body>
 
 </html>
