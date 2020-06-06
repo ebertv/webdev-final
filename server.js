@@ -1,47 +1,85 @@
 // express server settings
 var express = require('express') ; 
 var fs = require('fs') ; 
+var spotify = require('spotify-web-api-node') ;
 
 // spotify api settings
-var SpotifyWebApi = require('spotify-web-api-node') ; 
-
-var spotifyApi = new SpotifyWebApi({
-  clientId: '00832342126640faa8d4277550eabb26',
-  clientSecret: 'd30be2ef499f4d92ac0b252517a3396a',
-  redirectUri: 'http://localhost.3000'
-});
-console.log("bad") ; 
+var spotifyapi = new spotify({
+  clientId : '00832342126640faa8d4277550eabb26' ,
+  clientSecret : 'c08c9b5763cf4c20af0fcbf8aca4bbbc' ,
+  redirect_uri : 'http://localhost:3000' 
+}) ; 
 
 
-spotifyApi.clientCredentialsGrant().then(
-  function(data) {
-    console.log(data.body['access_token']) ; 
-    spotifyApi.setAccessToken(data.body['access_token']);
-    return data.body['access_token'] ;  
-  }
-  );
-
-spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
-    function(data) {
-      console.log('Artist albums', data.body);
-    },
-    function(err) {
-      console.error(err);
-    }
-  );
-console.log("good") ; 
 
 
-//   function printingdata(features){
-//   console.log("see",features.body) ; 
-// } ; 
 
-// printingdata(features)
-
-// printingdata(data) ; 
 //spotify functionality 
 
-// express settings 
+
+var songid = '3Qm86XLflmIXVm1wcwkgDK' ; 
+
+    //audio features 
+spotifyapi.clientCredentialsGrant().then(
+  function(data) {
+    //authorization
+    spotifyapi.setAccessToken(data.body['access_token']);
+    //functionality
+    spotifyapi.getAudioFeaturesForTrack(songid).then(
+      function(data) {
+        // console.log('Search by ' + songid , data.body) ; 
+        console.log("featues completed") ; 
+        //data.body is the object
+        //save the object to a json file 
+        var content = JSON.stringify(data.body) ; 
+        fs.writeFile("data_json/featues.json",content,'utf8',function(err){
+          if (err){
+            return console.log(err) ; 
+          }
+
+        }) ; 
+      },
+      function(err) {
+        console.error(err);
+      }
+      );
+    },
+    function(err) {
+      console.log(err);
+    }
+    );
+    var searchkeywords = 'yellow' ; 
+
+    //search tracks function 
+    spotifyapi.clientCredentialsGrant().then(
+      function(data) {
+        //authorization
+        spotifyapi.setAccessToken(data.body['access_token']);
+        //functionality
+        spotifyapi.searchTracks(searchkeywords).then(
+          function(data) {
+            // console.log('Search by ' + searchkeywords , data.body) ; 
+            console.log("search completed") ; 
+            //data.body is the object
+            //save the object to a json file 
+            var content = JSON.stringify(data.body) ; 
+            fs.writeFile("data_json/search_result.json",content,'utf8',function(err){
+              if (err){
+                return console.log(err) ; 
+              }
+    
+            }) ; 
+          },
+          function(err) {
+            console.error(err);
+          }
+          );
+        },
+        function(err) {
+          console.log(err);
+        }
+        );
+    // express settings 
 var app = express() ; 
 app.use(express.static(__dirname + "/public")) ; 
 
@@ -57,67 +95,3 @@ app.get('*',function(req,res,next){
 app.listen(3000,function(){
   console.log("== Server is listening on port 3000") ; 
 }) ; 
-
-// // Retrieve an access token.
-// spotifyApi.clientCredentialsGrant().then(
-//     function(data) {
-//       console.log('The access token expires in ' + data.body['expires_in']);
-//       console.log('The access token is ' + data.body['access_token']);
-   
-//       // Save the access token so that it's used in future calls
-//       spotifyApi.setAccessToken(data.body['access_token']);
-//       console.log("all good")
-//       return spotifyApi.getAudioFeaturesForTrack('3Qm86XLflmIXVm1wcwkgDK') ; 
-//     }).then(function(data) {
-//         console.log(data.body);
-//         var features = JSON.stringify(data.body) ; 
-//         fs.writeFile("features.json", features, 'utf8', function (err) {
-//             if (err) {
-//                 console.log("An error occured while writing JSON Object to File.");
-//                 return console.log(err);
-//             }
-         
-//             console.log("JSON file has been saved.");
-//         }); 
-//       }, function(err) {
-//         done(err);
-//       });
-// //     then(function(data) {
-// //         // Print some information about the results
-// //         console.log('I got ' + data.body.tracks.total + ' results!');
-    
-// //         // Go through the first page of results
-// //         var firstPage = data.body.tracks.items;
-// //         console.log(
-// //           'The tracks in the first page are.. (popularity in parentheses)'
-// //         );
-    
-// //         /*
-// //          * 0: All of Me (97)
-// //          * 1: My Love (91)
-// //          * 2: I Love This Life (78)
-// //          * ...
-// //          */
-// //         firstPage.forEach(function(track, index) {
-// //           console.log(index + ': ' + track.name + ' (' + track.popularity + ')');
-// //         });
-// //       })
-// //       .catch(function(err) {
-// //         console.log('Something went wrong:', err.message);
-// //       });
-// // spotifyApi.getAudioAnalysisForTrack('3Qm86XLflmIXVm1wcwkgDK')
-// //       .then(function(data) {
-// //         console.log(data.body);
-// //       }, function(err) {
-// //         done(err);
-// //       });
-
-
-// // // var app = express() ; 
-
-// // // spotifyApi.searchTracks('artist:Love')
-// // //   .then(function(data) {
-// // //     console.log('Search tracks by "Love" in the artist name', data.body);
-// // //   }, function(err) {
-// // //     console.log('Something went wrong!', err);
-// // //   });
