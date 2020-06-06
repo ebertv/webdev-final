@@ -136,6 +136,7 @@ spotifyapi.clientCredentialsGrant().then(
             
             var content = JSON.stringify(songs) ; 
 
+            console.log("Songs 1's artist: " , songs[1].artist_name ) ; 
             fs.writeFile("data_json/search_result.json",content,'utf8',function(err){
               if (err){
                 return console.log(err) ; 
