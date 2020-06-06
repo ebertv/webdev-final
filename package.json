@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/osu-cs290-sp20/final-project-musicwiki#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "handlebars": "^4.7.6",
+    "logger": "0.0.1",
+    "request": "^2.88.2",
     "spotify-web-api-node": "^4.0.0"
   }
 }
