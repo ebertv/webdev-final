@@ -48,6 +48,8 @@ spotifyapi.clientCredentialsGrant().then(
       console.log(err);
     }
     );
+
+    //hook this up with the search result 
     var searchkeywords = 'yellow' ; 
 
     //search tracks function 
@@ -136,6 +138,7 @@ spotifyapi.clientCredentialsGrant().then(
             
             var content = JSON.stringify(songs) ; 
 
+            //how to access the json file 
             console.log("Songs 1's artist: " , songs[1].artist_name ) ; 
             fs.writeFile("data_json/search_result.json",content,'utf8',function(err){
               if (err){
