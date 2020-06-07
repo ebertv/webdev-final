@@ -94,6 +94,7 @@ spotifyapi.clientCredentialsGrant().then(
           'popularity' : data.body.tracks.items[0].popularity,
           'preview_pic' : data.body.tracks.items[0].album.images[1].url ,
           'artist_name' : data.body.tracks.items[0].artists[0].name , 
+          'preview_url' : data.body.tracks.items[0].preview_url,
           'id': data.body.tracks.items[0].id
         }
         song_card1 = {
@@ -101,13 +102,15 @@ spotifyapi.clientCredentialsGrant().then(
           'popularity' : data.body.tracks.items[1].popularity,
           'preview_pic' : data.body.tracks.items[1].album.images[1].url ,
           'artist_name' : data.body.tracks.items[1].artists[0].name , 
+          'preview_url' : data.body.tracks.items[1].preview_url,
           'id': data.body.tracks.items[1].id
         }
         song_card2 = {
           'name':data.body.tracks.items[2].name,
           'popularity' : data.body.tracks.items[2].popularity,
           'preview_pic' : data.body.tracks.items[2].album.images[1].url ,
-          'artist_name' : data.body.tracks.items[2].artists[0].name , 
+          'artist_name' : data.body.tracks.items[2].artists[0].name ,
+          'preview_url' : data.body.tracks.items[2].preview_url,
           'id': data.body.tracks.items[2].id
         }
         song_card3 = {
@@ -122,6 +125,7 @@ spotifyapi.clientCredentialsGrant().then(
           'popularity' : data.body.tracks.items[4].popularity,
           'preview_pic' : data.body.tracks.items[4].album.images[1].url ,
           'artist_name' : data.body.tracks.items[4].artists[0].name , 
+          'preview_url' : data.body.tracks.items[4].preview_url,
           'id': data.body.tracks.items[4].id
         }
         song_card5 = {
@@ -129,13 +133,15 @@ spotifyapi.clientCredentialsGrant().then(
           'popularity' : data.body.tracks.items[5].popularity,
           'preview_pic' : data.body.tracks.items[5].album.images[1].url ,
           'artist_name' : data.body.tracks.items[5].artists[0].name , 
+          'preview_url' : data.body.tracks.items[5].preview_url,
           'id': data.body.tracks.items[5].id
         }
         song_card6 = {
           'name':data.body.tracks.items[6].name,
           'popularity' : data.body.tracks.items[6].popularity,
           'preview_pic' : data.body.tracks.items[6].album.images[1].url ,
-          'artist_name' : data.body.tracks.items[6].artists[0].name , 
+          'artist_name' : data.body.tracks.items[6].artists[0].name ,
+          'preview_url' : data.body.tracks.items[6].preview_url,
           'id': data.body.tracks.items[6].id
         }
         song_card7 = {
@@ -143,6 +149,7 @@ spotifyapi.clientCredentialsGrant().then(
           'popularity' : data.body.tracks.items[7].popularity,
           'preview_pic' : data.body.tracks.items[7].album.images[1].url ,
           'artist_name' : data.body.tracks.items[7].artists[0].name , 
+          'preview_url' : data.body.tracks.items[7].preview_url,
           'id': data.body.tracks.items[7].id
         }
         song_card8 = {
@@ -150,6 +157,7 @@ spotifyapi.clientCredentialsGrant().then(
           'popularity' : data.body.tracks.items[8].popularity,
           'preview_pic' : data.body.tracks.items[8].album.images[1].url ,
           'artist_name' : data.body.tracks.items[8].artists[0].name , 
+          'preview_url' : data.body.tracks.items[8].preview_url,
           'id': data.body.tracks.items[8].id
         }
         song_card9 = {
@@ -157,6 +165,7 @@ spotifyapi.clientCredentialsGrant().then(
           'popularity' : data.body.tracks.items[9].popularity,
           'preview_pic' : data.body.tracks.items[9].album.images[1].url ,
           'artist_name' : data.body.tracks.items[9].artists[0].name , 
+          'preview_url' : data.body.tracks.items[9].preview_url,
           'id': data.body.tracks.items[9].id
         }
         
