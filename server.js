@@ -1,5 +1,6 @@
 // express server settings
-var express = require('express') ; 
+var express = require('express') ;
+var exphbs = require('express-handlebars') ;
 var fs = require('fs') ; 
 var spotify = require('spotify-web-api-node') ;
 // spotify api settings
@@ -10,17 +11,73 @@ var spotifyapi = new spotify({
 }) ; 
 
 
-    
+var saved_songs = []  
+var search_result = require("./data_json/search_result.json");  
+
 // express settings 
 var app = express() ; 
-app.use(express.static(__dirname + "/public")) ; 
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+app.use(express.static("public")) ; 
 
 // website hosting 
 app.get('/',function(req,res,next){
-  res.status(200).sendFile(__dirname + "/public/home.html") ; 
+  res.status(200);
+  res.render('homePage', {});
 }) ; 
+
+app.get('/home',function(req,res,next){
+  res.status(200);
+  res.render('homePage', {});
+}) ;
+
+app.get('/about', function(req, res, next){
+  res.status(200);
+  res.render('about',{});
+});
+
+app.get('/credits', function(req, res, next){
+  res.status(200);
+  res.render('credits',{});
+});
+
+app.get('/saved', function(req, res, next){
+  if(saved_songs.length != 0){
+    res.status(200);
+    res.render('songPage',{
+      any: true,
+      songList: saved_songs
+    });
+  } else {
+    res.status(404);
+    res.render('404', {});
+  }
+});
+
+
+app.get('/search', function(req, res, next){
+  res.status(200);
+  res.render('songPage', {
+    songList: search_result
+  });
+});
+
+
+app.listen(3000,function(){
+  console.log("== Server is listening on port 3000") ; 
+}) ;
+
+app.get('*',function(req,res,next){
+  res.status(404);
+  res.render('404', {});
+}) ; 
+
+
+
 //hook this up with the search result 
-var searchkeywords = 'yellow' ; 
+var searchkeywords = 'diamonds' ; 
 
 //search tracks function 
 spotifyapi.clientCredentialsGrant().then(
@@ -174,10 +231,4 @@ spotifyapi.clientCredentialsGrant().then(
     }
     );
 
-app.get('*',function(req,res,next){
-  res.status(404).sendFile(__dirname + "/public/404.html");
-}) ; 
-
-app.listen(3000,function(){
-  console.log("== Server is listening on port 3000") ; 
-}) ; 
+ 
