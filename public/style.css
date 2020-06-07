@@ -1,6 +1,6 @@
 /*Random fonts, don't have an opinon*/
 body{
-    font-family: Avant Garde, Verdana, sans-serif;
+    font-family: 'Montserrat';
     margin: 0;
     color: #f2f2f2;
     background-color: #262626;
@@ -12,9 +12,10 @@ body{
     padding: 10px 20px;
     text-align: center;
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 500;
     background-color: #1ed760;
     color: #f2f2f2;
+    font-family: 'Open Sans';
 }
 
 .navbar {
@@ -96,22 +97,15 @@ a:focus {
     display: inline-block;
 }
 
-.button:hover{
-    background-color: white;
-    color:  black;
-}
-
 #song-button{
     background-color:  #595959;
     border: none;
 }
 
 #song-button:hover{
-    background-color: white;
-}
+    border: 2px solid white;
+    background-color: #2f2f2f;
 
-span:hover{
-    color:black;
 }
 
 #search-button {
@@ -120,17 +114,19 @@ span:hover{
     align-content: center;
 }
 
+#search-button:hover {
+    border: 2px solid white;
+}
+
+span:hover{
+    color: #1ed760;
+}
+
 .material-icons{
     color: white;
     font-size: 12px;
 }
 
-#random-button {
-    height: 125px;
-    width: 250px;
-    margin: 50px 650px;
-    font-size: 30px;
-}
 
 .song-container {
     margin: 50px 1%;
@@ -140,20 +136,22 @@ span:hover{
   }
   
   .song {
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 400px;
     margin: 20px;
     padding: 20px;
     /*border: 1px solid #000000;*/
     border-radius: 10px;
     background-color: #595959;
     box-shadow: 5px 5px 4px #888888;
+    flex-basis: 40%;
   }
   
   .song-analytics {
     font-size: 18px;
-    width: 125px;
-    height: 125px;
+    width: 400px;
+    height: 200px;
+    word-break: break-all;
   }
   
   .song-content {
@@ -172,12 +170,36 @@ span:hover{
 
   .img-container {
     display: flex;
-    justify-items: center;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     height: 50%;
     filter: invert(100%);
+    justify-content: center;
+  }
+
+  .img-container2 {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+    transform: scale(.25);
+  }
+
+  .img-container3{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+    transform: scale(.75);
+  }
+
+  img{
+      flex-basis: 50%;
   }
 
   h5{

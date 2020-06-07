@@ -43,7 +43,7 @@ app.get('/credits', function(req, res, next){
   res.render('credits',{});
 });
 
-app.get('/saved', function(req, res, next){
+/*app.get('/saved', function(req, res, next){
   if(saved_songs.length != 0){
     res.status(200);
     res.render('songPage',{
@@ -54,7 +54,7 @@ app.get('/saved', function(req, res, next){
     res.status(404);
     res.render('404', {});
   }
-});
+});*/
 
 
 app.get('/search', function(req, res, next){
