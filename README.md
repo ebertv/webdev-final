@@ -1,7 +1,17 @@
-Fill README with text from about page?
+The Spotify Wiki is a program meant to display information about any song found within Spotify's database. Searching on the home page will allow the user to see the top 10 results of relevant songs they have searched for, sorted by popularity. Features of a song can be accessed by clicking one of the song cards. The credits page details more information about Spotify's API and the creators of this website. 
 
-Victoria: basic html/css, can also create handlebars when that is needed. I made a random button in the nav bar, that if you click it will take you to as if you had searched for a random song. Delete if this would be impossible/too much work. Most of what I did I borrowed from tweeter, so everything is changeable! It isn't pretty right now, but its something!
+Members of this project:
+Victoria (ebertv@oregonstate.edu )
+-> Outlines for HTML/CSS
+-> Templating
+-> Search bar JS
 
-Rose: more advanced css/html, client side js
+King (chanki@oregonstate.edu )
+-> Server
+-> API
 
-King: server side, api work
+Rose (rodartes@oregonstate.edu)
+-> Advanced CSS/HTML
+-> Clicking Song Card JS
+
+Demo Date: 6/12/20 @ 1:30 PM
