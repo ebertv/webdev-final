@@ -42,7 +42,7 @@ app.get('/music_wiki_credits', function(req, res, next){
   res.render('credits',{});
 });
 
-app.get('/music_wiki_saved', function(req, res, next){
+/*app.get('/saved', function(req, res, next){
   if(saved_songs.length != 0){
     res.status(200);
     res.render('songPage',{
@@ -53,7 +53,7 @@ app.get('/music_wiki_saved', function(req, res, next){
     res.status(404);
     res.render('404', {});
   }
-});
+});*/
 
 
 //hook this up with the search result 
