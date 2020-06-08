@@ -10,10 +10,9 @@ var spotifyapi = new spotify({
   redirect_uri : 'http://localhost:3000' 
 }) ; 
 
+//var songs = require("./data_json/search_result.json"); 
 
 var saved_songs = []  
-var search_result = require("./data_json/search_result.json");  
-
 // express settings 
 var app = express() ; 
 
@@ -28,22 +27,22 @@ app.get('/',function(req,res,next){
   res.render('homePage', {});
 }) ; 
 
-app.get('/home',function(req,res,next){
+app.get('/music_wiki_home',function(req,res,next){
   res.status(200);
   res.render('homePage', {});
 }) ;
 
-app.get('/about', function(req, res, next){
+app.get('/music_wiki_about', function(req, res, next){
   res.status(200);
   res.render('about',{});
 });
 
-app.get('/credits', function(req, res, next){
+app.get('/music_wiki_credits', function(req, res, next){
   res.status(200);
   res.render('credits',{});
 });
 
-app.get('/saved', function(req, res, next){
+app.get('/music_wiki_saved', function(req, res, next){
   if(saved_songs.length != 0){
     res.status(200);
     res.render('songPage',{
@@ -57,27 +56,30 @@ app.get('/saved', function(req, res, next){
 });
 
 
-app.get('/search', function(req, res, next){
+//hook this up with the search result 
+var searchkeywords;
+var searchdata;
+var songs;
+app.get('/:query', function(req, res, next){
   res.status(200);
+  searchkeywords = req.params.query;
+  searchSpotify(searchkeywords);
+  searchdata = fs.readFileSync('data_json/search_result.json','utf8') ; 
+  console.log(searchdata); 
+  songs = JSON.parse(searchdata) ;
+  console.log(songs);
   res.render('songPage', {
-    songList: search_result
+    songList: songs
   });
 });
-
 
 app.get('*',function(req,res,next){
   res.status(404);
   res.render('404', {});
 }) ; 
 
-app.listen(3000,function(){
-  console.log("== Server is listening on port 3000") ; 
-}) ;
-
-  //hook this up with the search result 
-  var searchkeywords = 'diamonds';
-
-  //search tracks function 
+//search tracks function 
+function searchSpotify(searchkeywords){
   spotifyapi.clientCredentialsGrant().then(
     function(data) {
       //authorization
@@ -92,6 +94,7 @@ app.listen(3000,function(){
             'popularity' : data.body.tracks.items[0].popularity,
             'preview_pic' : data.body.tracks.items[0].album.images[1].url ,
             'artist_name' : data.body.tracks.items[0].artists[0].name , 
+            'preview_url' : data.body.tracks.items[0].preview_url,
             'id': data.body.tracks.items[0].id
           }
           song_card1 = {
@@ -99,13 +102,15 @@ app.listen(3000,function(){
             'popularity' : data.body.tracks.items[1].popularity,
             'preview_pic' : data.body.tracks.items[1].album.images[1].url ,
             'artist_name' : data.body.tracks.items[1].artists[0].name , 
+            'preview_url' : data.body.tracks.items[1].preview_url,
             'id': data.body.tracks.items[1].id
           }
           song_card2 = {
             'name':data.body.tracks.items[2].name,
             'popularity' : data.body.tracks.items[2].popularity,
             'preview_pic' : data.body.tracks.items[2].album.images[1].url ,
-            'artist_name' : data.body.tracks.items[2].artists[0].name , 
+            'artist_name' : data.body.tracks.items[2].artists[0].name ,
+            'preview_url' : data.body.tracks.items[2].preview_url,
             'id': data.body.tracks.items[2].id
           }
           song_card3 = {
@@ -120,6 +125,7 @@ app.listen(3000,function(){
             'popularity' : data.body.tracks.items[4].popularity,
             'preview_pic' : data.body.tracks.items[4].album.images[1].url ,
             'artist_name' : data.body.tracks.items[4].artists[0].name , 
+            'preview_url' : data.body.tracks.items[4].preview_url,
             'id': data.body.tracks.items[4].id
           }
           song_card5 = {
@@ -127,13 +133,15 @@ app.listen(3000,function(){
             'popularity' : data.body.tracks.items[5].popularity,
             'preview_pic' : data.body.tracks.items[5].album.images[1].url ,
             'artist_name' : data.body.tracks.items[5].artists[0].name , 
+            'preview_url' : data.body.tracks.items[5].preview_url,
             'id': data.body.tracks.items[5].id
           }
           song_card6 = {
             'name':data.body.tracks.items[6].name,
             'popularity' : data.body.tracks.items[6].popularity,
             'preview_pic' : data.body.tracks.items[6].album.images[1].url ,
-            'artist_name' : data.body.tracks.items[6].artists[0].name , 
+            'artist_name' : data.body.tracks.items[6].artists[0].name ,
+            'preview_url' : data.body.tracks.items[6].preview_url,
             'id': data.body.tracks.items[6].id
           }
           song_card7 = {
@@ -141,6 +149,7 @@ app.listen(3000,function(){
             'popularity' : data.body.tracks.items[7].popularity,
             'preview_pic' : data.body.tracks.items[7].album.images[1].url ,
             'artist_name' : data.body.tracks.items[7].artists[0].name , 
+            'preview_url' : data.body.tracks.items[7].preview_url,
             'id': data.body.tracks.items[7].id
           }
           song_card8 = {
@@ -148,6 +157,7 @@ app.listen(3000,function(){
             'popularity' : data.body.tracks.items[8].popularity,
             'preview_pic' : data.body.tracks.items[8].album.images[1].url ,
             'artist_name' : data.body.tracks.items[8].artists[0].name , 
+            'preview_url' : data.body.tracks.items[8].preview_url,
             'id': data.body.tracks.items[8].id
           }
           song_card9 = {
@@ -155,6 +165,7 @@ app.listen(3000,function(){
             'popularity' : data.body.tracks.items[9].popularity,
             'preview_pic' : data.body.tracks.items[9].album.images[1].url ,
             'artist_name' : data.body.tracks.items[9].artists[0].name , 
+            'preview_url' : data.body.tracks.items[9].preview_url,
             'id': data.body.tracks.items[9].id
           }
           
@@ -162,14 +173,15 @@ app.listen(3000,function(){
             ,song_card5,song_card6,song_card7,song_card8,song_card9] ; 
           
           var content = JSON.stringify(songs) ; 
-
+  
+          
           //how to access the json file 
           console.log("Songs 1's artist: " , songs[1].artist_name ) ; 
           fs.writeFile("data_json/search_result.json",content,'utf8',function(err){
             if (err){
               return console.log(err) ; 
             }
-
+  
           }) ; 
         },
         function(err) {
@@ -181,54 +193,58 @@ app.listen(3000,function(){
         console.log(err);
       }
       );
-
-      // *********************
-  // Require the index of that song_card 
-  // *********************
-
-  //spotify functionality 
-  //index of that song card 
-  var index = 2 ; 
-  //Read the json file 
-  var searchdata = fs.readFileSync('data_json/search_result.json','utf8') ; 
-  //process 
-  var data = JSON.parse(searchdata) ; 
-  var id = data[index].id ; 
-
-  console.log("Artist id for index 2 " , id ) ;
-  //get the song id
-  var songid = id ; 
-
-      //audio features 
-  spotifyapi.clientCredentialsGrant().then(
-    function(data) {
-      //authorization
-      spotifyapi.setAccessToken(data.body['access_token']);
-      //functionality
-      spotifyapi.getAudioFeaturesForTrack(songid).then(
-        function(data) {
-          // console.log('Search by ' + songid , data.body) ; 
-          console.log("featues completed") ; 
-          //data.body is the object
-          //save the object to a json file 
-          var content = JSON.stringify(data.body) ; 
-          fs.writeFile("data_json/featues.json",content,'utf8',function(err){
-            if (err){
-              return console.log(err) ; 
-            }
-
-          }) ; 
+  
+        // *********************
+    // Require the index of that song_card 
+    // *********************
+  
+    //spotify functionality 
+    //index of that song card 
+    var index = 2 ; 
+    //Read the json file 
+    var searchdata = fs.readFileSync('data_json/search_result.json','utf8') ; 
+    //process 
+    var data = JSON.parse(searchdata) ; 
+    var id = data[index].id ; 
+  
+    console.log("Artist id for index 2 " , id ) ;
+    //get the song id
+    var songid = id ; 
+  
+        //audio features 
+    spotifyapi.clientCredentialsGrant().then(
+      function(data) {
+        //authorization
+        spotifyapi.setAccessToken(data.body['access_token']);
+        //functionality
+        spotifyapi.getAudioFeaturesForTrack(songid).then(
+          function(data) {
+            // console.log('Search by ' + songid , data.body) ; 
+            console.log("featues completed") ; 
+            //data.body is the object
+            //save the object to a json file 
+            var content = JSON.stringify(data.body) ; 
+            fs.writeFile("data_json/featues.json",content,'utf8',function(err){
+              if (err){
+                return console.log(err) ; 
+              }
+  
+            }) ; 
+          },
+          function(err) {
+            console.error(err);
+          }
+          );
         },
         function(err) {
-          console.error(err);
+          console.log(err);
         }
         );
-      },
-      function(err) {
-        console.log(err);
-      }
-      );
+}
 
 
 
  
+app.listen(3000,function(){
+  console.log("== Server is listening on port 3000") ; 
+}) ;
