@@ -6,6 +6,26 @@ body{
     background-color: #262626;
 }    
 
+body::-webkit-scrollbar {
+    width: 0.35rem;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #2f2f2f;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: #15a748;
+    outline: 1px solid black;
+  }
+
+  main {
+    margin-left: 5rem;
+    padding: 1rem;
+  }
+  
+
  /*just picked same color as spotify logo, don't care about colors*/
 .site-title{
     margin: 0;
@@ -32,6 +52,7 @@ body{
 .navitem {
     display: inline-block;
 }
+
 
 h1{
     text-align: center;
@@ -136,7 +157,7 @@ span:hover{
   }
   
   .song {
-    height: 300px;
+    height: 600px;
     width: 400px;
     margin: 20px;
     padding: 20px;
@@ -149,11 +170,16 @@ span:hover{
   
   .song-analytics {
     font-size: 18px;
-    width: 400px;
+    width: 500px;
     height: 200px;
     word-break: break-all;
   }
-  
+ 
+  .song-info {
+    word-break: break-all;
+    width: 500px;
+  }
+
   .song-content {
     text-decoration-color: rgb(0, 0, 0);
   }
@@ -166,6 +192,11 @@ span:hover{
     margin-top: 8px;
     text-align: right;
     font-weight: bold;
+  }
+
+  .song-image{
+      transform: scale(.9);
+      width: 30px;
   }
 
   .img-container {
