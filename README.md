@@ -2,16 +2,12 @@ The Spotify Wiki is a program meant to display information about any song found 
 
 Members of this project:
 Victoria (ebertv@oregonstate.edu )
--> Outlines for HTML/CSS
--> Templating
--> Search bar JS
+-> Outlines for HTML/CSS, Templating, & Search bar JS
 
 King (chanki@oregonstate.edu )
--> Server
--> API
+-> Server & API
 
 Rose (rodartes@oregonstate.edu)
--> Advanced CSS/HTML
--> Clicking Song Card JS
+-> Advanced CSS/HTML & Clicking Song Card JS
 
 Demo Date: 6/12/20 @ 1:30 PM
