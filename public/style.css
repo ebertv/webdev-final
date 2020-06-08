@@ -157,7 +157,7 @@ span:hover{
   }
   
   .song {
-    height: 600px;
+    height: 525px;
     width: 400px;
     margin: 20px;
     padding: 20px;
@@ -238,3 +238,6 @@ span:hover{
       font-size: 28px;
       font-weight:bolder;
   }
+li{
+    font-family: 'Sorts Mill Goudy';
+}

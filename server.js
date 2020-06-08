@@ -69,7 +69,6 @@ app.get('/:query', function(req, res, next){
   songs = JSON.parse(searchdata) ;
   console.log(songs);
   res.render('songPage', {
-    searchresult: searchkeywords,
     songList: songs
   });
 });

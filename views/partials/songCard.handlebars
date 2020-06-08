@@ -1,6 +1,6 @@
 <article class="song">
     <div class="song-buttons">
-        <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button>
+        <a href="{{preview_url}}"> <button type="button" id="song-button"> <span class="material-icons"> play_circle_outline </span> </button> </a>
         <button type="button" id="song-button" class="save-button"> <span class="material-icons"> done </span></button>
     </div>
     <div class="song-analytics">
@@ -14,7 +14,6 @@
             {{artist_name}}
         </p>
         <p> Popularity: {{popularity}} </p>
-        <p> Play the song by clicking <a href="{{preview_url}}"> here </a> </p>
         <p> ID: {{id}} </p>
     </div>
 </article>
