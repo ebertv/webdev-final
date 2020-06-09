@@ -1,3 +1,4 @@
+/*search function*/
 window.addEventListener('DOMContentLoaded', function () {
     var searchButton = document.getElementById('search-button');
     if (searchButton) {
@@ -11,3 +12,8 @@ function doSearch () {
     console.log(searchQuery);
     window.location.href = "/"+searchQuery;
 }
+
+/*clickable song cards*/
+document.getElementsByClassName('song').onclick = function(){
+    window.location.href = './features';
+};

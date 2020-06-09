@@ -13,6 +13,8 @@ var spotifyapi = new spotify({
 //var songs = require("./data_json/search_result.json"); 
 
 var saved_songs = []  
+var features = requires('./features');
+
 // express settings 
 var app = express() ; 
 
@@ -42,18 +44,12 @@ app.get('/music_wiki_credits', function(req, res, next){
   res.render('credits',{});
 });
 
-/*app.get('/saved', function(req, res, next){
-  if(saved_songs.length != 0){
-    res.status(200);
-    res.render('songPage',{
-      any: true,
-      songList: saved_songs
+app.get('/features', function(req, res, next){
+  res.status(200);
+  res.render('features',{
+      features
     });
-  } else {
-    res.status(404);
-    res.render('404', {});
-  }
-});*/
+  });
 
 
 //hook this up with the search result 
