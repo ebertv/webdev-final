@@ -4,6 +4,17 @@ window.addEventListener('DOMContentLoaded', function () {
     if (searchButton) {
         searchButton.addEventListener('click', doSearch);
     }
+
+    var songChoice = document.getElementsByClassName('song');
+    if(songChoice){
+        for(var i = 0; i < songChoice.length; i++){
+            (function(index){
+                songChoice[i].onclick = function(){
+                    doFeatures(index);
+                }
+            })(i);
+        }
+    }
 });
 
 function doSearch () {
@@ -14,6 +25,7 @@ function doSearch () {
 }
 
 /*clickable song cards*/
-document.getElementsByClassName('song').onclick = function(){
-    window.location.href = './features';
-};
+function doFeatures (index){
+    console.log("Song at ", index);
+    window.location.href = "/features/"+index;
+}

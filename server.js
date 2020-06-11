@@ -44,10 +44,40 @@ app.get('/music_wiki_credits', function(req, res, next){
   res.render('credits',{});
 });
 
-app.get('/features', function(req, res, next){
+app.get('/features/:index', function(req, res, next){
+  index = req.params.index;
   res.status(200);
+  searchSpotify(searchkeywords);
+  searchdata = fs.readFileSync('data_json/search_result.json','utf8') ; 
+  console.log(searchdata); 
+  songs = JSON.parse(searchdata) ;
+  getFeatures(songs[index].id);
+  featuredata = fs.readFileSync('data_json/featues.json','utf8') ;  
+  feature = JSON.parse(featuredata) ;
+  console.log(feature);
+
   res.render('features',{
-      features
+      title: songs[index].name,
+      artist: songs[index].artist_name,
+      duration_ms: feature.duration_ms,
+      key: feature.key, 
+      mode: feature.mode, 
+      time_signature: feature.time_signature,
+      acousticness: feature.acousticness,
+      dancability: feature.danceability,
+      energy: feature.energy,
+      instrumentalness: feature.instrumentalness,
+      liveness: feature.liveness,
+      loudness: feature.loudness,
+      speechiness: feature.speechiness,
+      valence: feature.valence,
+      tempo: feature.tempo, 
+      id: feature.id, 
+      uri: feature.uri,
+      track_hrf: feature.track_hrf,
+      analysis_url: feature.analysis_url,
+      type: feature.type
+
     });
   });
 
@@ -189,23 +219,25 @@ function searchSpotify(searchkeywords){
         console.log(err);
       }
       );
-  
-        // *********************
+}
+
+function getFeatures(songid){
+          // *********************
     // Require the index of that song_card 
     // *********************
   
     //spotify functionality 
     //index of that song card 
-    var index = 2 ; 
+    //var index = 2 ; 
     //Read the json file 
-    var searchdata = fs.readFileSync('data_json/search_result.json','utf8') ; 
+    //var searchdata = fs.readFileSync('data_json/search_result.json','utf8') ; 
     //process 
-    var data = JSON.parse(searchdata) ; 
-    var id = data[index].id ; 
+    //var data = JSON.parse(searchdata) ; 
+    //var id = data[index].id ; 
   
-    console.log("Artist id for index 2 " , id ) ;
+    //console.log("Artist id for index 2 " , id ) ;
     //get the song id
-    var songid = id ; 
+    //var songid = id ; 
   
         //audio features 
     spotifyapi.clientCredentialsGrant().then(
@@ -237,8 +269,6 @@ function searchSpotify(searchkeywords){
         }
         );
 }
-
-
 
  
 app.listen(3000,function(){

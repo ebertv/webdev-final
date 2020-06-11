@@ -8,15 +8,15 @@
     </nav>
     </header>
     
-    <h1> Song Features for (Song Variable) by (Artist Variable) </h1>
+    <h1> Song Features for {{title}} by {{artist}} </h1>
     
-    {{>featureCard}}    
+    {{>featureCard}}   
 
     <h5> Audio Features: </h5>
-    <p> <strong> duration_ms: </strong> duration of the track in milliseconds
+    <p> <strong> duration: </strong> duration of the track in milliseconds
     <br> <br> <strong> key: </strong> The estimated overall key of the track. Integers map to pitches using standard Pitch Class notation . E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.
     <br> <br> <strong> mode: </strong> Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0. 
-    <br> <br> <strong> time_signature: </strong> An estimated overall time signature of a track. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). 
+    <br> <br> <strong> time signature: </strong> An estimated overall time signature of a track. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). 
     <br> <br> <strong> acousticness: </strong> A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. 
     <br> <br> <strong> danceabilty:	</strong> Danceabilty describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stabiulty, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
     <br> <br> <strong> energy: </strong> Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.
@@ -28,6 +28,6 @@
     <br> <br> <strong> tempo: </strong> The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration. 
     <br> <br> <strong> id: </strong> The Spotify ID for the track. 
     <br> <br> <strong> uri:</strong> The Spotify URI for the track. 
-    <br> <br> <strong> track_href: </strong> A link to the Web API endpoint providing details of the track 
-    <br> <br> <strong> analysis_url:</strong> An HTTP URL to access the full audio analysis of this track. An access token is required to access this data. 
+    <!--<br> <br> <strong> track_href: </strong> A link to the Web API endpoint providing details of the track 
+    <br> <br> <strong> analysis_url:</strong> An HTTP URL to access the full audio analysis of this track. An access token is required to access this data. -->
     <br> <br> <strong> type: </strong>The object type: “audio_features </p>
