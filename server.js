@@ -13,7 +13,7 @@ var spotifyapi = new spotify({
 //var songs = require("./data_json/search_result.json"); 
 
 var saved_songs = []  
-var features = requires('./features');
+var features = require('./features');
 
 // express settings 
 var app = express() ; 
