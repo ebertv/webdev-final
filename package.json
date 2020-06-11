@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "handlebars views/partials/songCard.handlebars -f public/songCard.js",
+    "build": "rm -f ./data_json/* && handlebars views/partials/songCard.handlebars -f public/songCard.js",
     "prestart": "npm run build"
   },
   "repository": {
