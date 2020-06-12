@@ -259,3 +259,12 @@ p::selection {
     background: #77dd77;
     color: #141414;
 }
+
+#disclaimer{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  text-decoration: underline;
+  text-decoration-color: #1ed760;
+  font-family: Times;
+}
