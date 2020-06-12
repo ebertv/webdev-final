@@ -50,21 +50,20 @@ body::-webkit-scrollbar {
 }
   
 .navitem {
-    display: inline-block;
+  display: inline-block;
 }
 
 
 h1{
-    text-align: center;
-
+  text-align: center;
 }
 
 h2{
-    text-align: center;
+  text-align: center;
 }
 
 h4{
-    text-align: center;
+  text-align: center;
 }
 
 a{
@@ -249,4 +248,14 @@ li{
   text-align: center;
   color: #77dd77;
   font-family: 'Open Sans';
+}
+
+.album-img{
+  margin: 20px 590px;
+  border: #77dd77 solid 3px;
+}
+
+p::selection {
+    background: #77dd77;
+    color: #141414;
 }

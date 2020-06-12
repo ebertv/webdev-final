@@ -65,7 +65,7 @@ app.get('/features/:index', function(req, res, next){
       mode: feature.mode, 
       time_signature: feature.time_signature,
       acousticness: feature.acousticness,
-      dancability: feature.danceability,
+      danceability: feature.danceability,
       energy: feature.energy,
       instrumentalness: feature.instrumentalness,
       liveness: feature.liveness,
@@ -94,6 +94,7 @@ app.get('/:query', function(req, res, next){
   songs = JSON.parse(searchdata) ;
   console.log(songs);
   res.render('songPage', {
+    searchResult: searchkeywords,
     songList: songs
   });
 });
