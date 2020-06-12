@@ -59,6 +59,7 @@ app.get('/features/:index', function(req, res, next){
   res.render('features',{
       title: songs[index].name,
       artist: songs[index].artist_name,
+      pic: songs[index].preview_pic,
       duration_ms: feature.duration_ms,
       key: feature.key, 
       mode: feature.mode, 
@@ -74,8 +75,6 @@ app.get('/features/:index', function(req, res, next){
       tempo: feature.tempo, 
       id: feature.id, 
       uri: feature.uri,
-      track_hrf: feature.track_hrf,
-      analysis_url: feature.analysis_url,
       type: feature.type
 
     });
